@@ -20,5 +20,5 @@ args = parser.parse_args()
 
 
 # file path
-file_path1 = f'test/source_file/{args.first_file}'
-file_path2 = f'test/source_file/{args.second_file}'
+file_path1 = f'source_file/{args.first_file}'
+file_path2 = f'source_file/{args.second_file}'
