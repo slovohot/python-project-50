@@ -1,5 +1,4 @@
 import argparse
-import json
 
 
 # description
@@ -23,15 +22,3 @@ args = parser.parse_args()
 # file path
 file_path1 = f'test/source_file/{args.first_file}'
 file_path2 = f'test/source_file/{args.second_file}'
-
-
-# accept json and returns a dict
-def get_data(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-        return data
-
-
-# returns a dict for futher processing
-data1 = get_data(file_path1)
-data2 = get_data(file_path2)
