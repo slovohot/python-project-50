@@ -20,7 +20,8 @@ jobs:
         # make depends on poetry
       - name: Install dependencies
         run: |
-          pip install poetry --upgrade pip
+          pip install poetry
+          pip install --upgrade pip
           make install
       - name: Run linter and pytest
         run: |
