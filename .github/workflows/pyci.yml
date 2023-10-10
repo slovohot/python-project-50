@@ -23,6 +23,7 @@ jobs:
           pip install poetry
           pip install --upgrade pip
           make install
+          pip install -r requirements.txt
       - name: Run linter and pytest
         run: |
           make check
