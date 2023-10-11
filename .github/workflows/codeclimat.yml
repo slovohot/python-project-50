@@ -14,23 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
+      - name: Install Poetry
         run: |
-          pip install pytest
-          pip install flake8
-          # Добавьте другие команды установки, если это необходимо
-          # ...
+          curl -sSL https://install.python-poetry.org | python3 -
+          python -m pip install --upgrade pip
+          poetry install
+        shell: bash
 
       - name: Run linter and pytest
         run: |
           poetry run flake8 gendiff
-          pytest
-
+          poetry run pytest
+        shell: bash
 
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.2.0
@@ -38,5 +33,5 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: pytest --cov=gendiff
+          coverageCommand: poetry run pytest --cov=gendiff
           debug: true
