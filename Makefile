@@ -7,3 +7,7 @@ full-install:
 
 lint:
 	poetry run flake8 gendiff
+
+coverage:
+	poetry run pytest --cov=gendiff --cov-report xml tests/
+

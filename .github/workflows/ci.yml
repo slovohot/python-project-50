@@ -27,11 +27,11 @@ jobs:
       - name: Run tests
         run: pytest
 
-      - name: Test & publish code coverage
+      - name: Test code coverage
         uses: paambaati/codeclimate-action@v3.2.0
         if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: poetry run pytest --cov=gendiff
+          coverageCommand: make coverage
           debug: true
