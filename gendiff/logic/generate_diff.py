@@ -1,21 +1,39 @@
-def generate_diff(f1, f2):
+import json
+
+
+# accept json and returns a dict
+def get_data(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+        return data
+
+
+def generate_diff(file_path1, file_path2):
     res = []
-    f1_keys = sorted(f1.keys())
-    f2_keys = sorted(f2.keys())
 
-    for key in f1_keys:
-        value1 = f1[key]
-        value2 = f2.get(key)
-        if key not in f2:
-            res.append(f'- {key}: {value1}')
+    # returns a dict for futher processing
+    data1 = get_data(file_path1)
+    data2 = get_data(file_path2)
+
+    # saves dict keys
+    data1_keys = sorted(data1.keys())
+    data2_keys = sorted(data2.keys())
+
+    for key in data1_keys:
+        value1 = data1[key]
+        value2 = data2.get(key)
+        if key not in data2:
+            res.append(f'- {key}: {value1}'.lower())
+
         elif value1 == value2:
-            res.append(f'  {key}: {value1}')
+            res.append(f'  {key}: {value1}'.lower())
+
         else:
-            res.append(f'- {key}: {value1}')
-            res.append(f'+ {key}: {value2}')
+            res.append(f'- {key}: {value1}'.lower())
+            res.append(f'+ {key}: {value2}'.lower())
 
-    for key in f2_keys:
-        if key not in f1:
-            res.append(f'+ {key}: {f2[key]}')
+    for key in data2_keys:
+        if key not in data1:
+            res.append(f'+ {key}: {data2[key]}'.lower())
 
-    return '{\n' + '\n'.join(res) + '\n'
+    return '{\n' + '\n'.join(res) + '\n}'
