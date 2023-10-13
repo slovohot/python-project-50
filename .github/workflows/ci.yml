@@ -24,6 +24,8 @@ jobs:
           pip install poetry
           poetry install
           poetry add --dev pytest-cov
+          pip install pyyaml
+          pip install --upgrade pyyaml
 
 
       - name: Run tests
