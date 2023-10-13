@@ -16,3 +16,9 @@ gendiff -h:
 gendiff file1.json file2.json:
 
 [![asciicast](https://asciinema.org/a/ANhVgLqCIjh4IKOYGtqZpkJVV.svg)](https://asciinema.org/a/ANhVgLqCIjh4IKOYGtqZpkJVV)
+
+
+
+gendiff file1.yaml file2.yaml:
+
+[![asciicast](https://asciinema.org/a/TE50ezUTthwzXswsB4uiLoSO1.svg)](https://asciinema.org/a/TE50ezUTthwzXswsB4uiLoSO1)
