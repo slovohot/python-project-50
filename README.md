@@ -22,3 +22,8 @@ gendiff file1.json file2.json:
 gendiff file1.yaml file2.yaml:
 
 [![asciicast](https://asciinema.org/a/TE50ezUTthwzXswsB4uiLoSO1.svg)](https://asciinema.org/a/TE50ezUTthwzXswsB4uiLoSO1)
+
+
+gendiff file11.json file22.json:
+
+[![asciicast](https://asciinema.org/a/8GzAZx59DfDEGA51vjiZWimgD.svg)](https://asciinema.org/a/8GzAZx59DfDEGA51vjiZWimgD)
