@@ -1,43 +1,44 @@
 import yaml
+import json
+import os
+from gendiff.logic.create_diff import create_diff
+from gendiff.formatters.format_stylish import format_stylish
 
 
-# accept json and returns a dict
+# accept json/yaml and returns a dict
 def get_data(file_path):
+    directory_path = 'tests/fixtures/'
+    _, extension = os.path.splitext(file_path)
+    file_path = os.path.join(directory_path, file_path)
+
     with open(file_path, 'r') as file:
-        data = yaml.safe_load(file)
-        return data
+        if extension == '.json':
+            return json.load(file)
+
+        elif extension == '.yml' or extension == '.yaml':
+            yaml_data = yaml.safe_load(file)
+            formatted_data = {}
+
+            for key, value in yaml_data.items():
+                if isinstance(value, list) and len(value) == 1:
+                    formatted_data[key] = value[0]
+
+                else:
+                    formatted_data[key] = value
+            return formatted_data
 
 
-def generate_diff(file_path1, file_path2):
-    res = []
-    # returns a dict for futher processing
+def generate_diff(file_path1, file_path2, format='stylish'):
+
+    print(f"Loading data from {file_path1}")
     data1 = get_data(file_path1)
+    # print(f"Data from {file_path1}: {data1}")
+
+    print(f"Loading data from {file_path2}")
     data2 = get_data(file_path2)
-    # saves dict keys
-    data1_keys = sorted(data1.keys())
-    data2_keys = sorted(data2.keys())
+    # print(f"Data from {file_path2}: {data2}")
 
-    for key in data1_keys:
-        value1 = data1[key]
-        value2 = data2.get(key)
-        # выглядит очень плохо, но я так и не придумал, как сделать это красивее
-        if key not in data2:
-            res.append(f'- {key}: {value1}'
-                       .translate(str.maketrans('', '', "[]'")).lower())
+    diff = create_diff(data1, data2)
 
-        elif value1 == value2:
-            res.append(f'  {key}: {value1}'
-                       .translate(str.maketrans('', '', "[]'")).lower())
-
-        else:
-            res.append(f'- {key}: {value1}'
-                       .translate(str.maketrans('', '', "[]'")).lower())
-            res.append(f'+ {key}: {value2}'
-                       .translate(str.maketrans('', '', "[]'")).lower())
-
-    for key in data2_keys:
-        if key not in data1:
-            res.append(f'+ {key}: {data2[key]}'
-                       .translate(str.maketrans('', '', "[]'")).lower())
-
-    return '{\n' + '\n'.join(res) + '\n}'
+    if format == 'stylish':
+        return format_stylish(diff)

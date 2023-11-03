@@ -1,9 +1,10 @@
 from gendiff.logic.generate_diff import generate_diff
-from gendiff.logic.logic_argparse import file_path1, file_path2
+from gendiff.logic.logic_argparse import parse_args
 
 
 def main():
-    diff = generate_diff(file_path1, file_path2)
+    first_file, second_file, format = parse_args()
+    diff = generate_diff(first_file, second_file, format)
     print(diff)
 
 
