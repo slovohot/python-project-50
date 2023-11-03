@@ -12,6 +12,11 @@ from gendiff.logic.generate_diff import generate_diff
      'file22.json',
      'tests/fixtures/result_stylish.txt',
      'stylish'),
+
+     ('file11.json',
+     'file22.json',
+     'tests/fixtures/result_plain.txt',
+     'plain')
 ])
 def test_generate_diff(file_path1, file_path2, result, format):
     with open(result, 'r') as res:
