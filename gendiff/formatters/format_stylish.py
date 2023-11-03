@@ -10,9 +10,9 @@ def get_stepdepth_or_vallower(value, depth):
         return create_format(value, depth + STEP_DEPTH)
 
     else:
-        return str(value).replace('True', 'true'). \
-            replace('False', 'false'). \
-            replace('None', 'null')
+        return str(value).replace('True', 'true') \
+                         .replace('False', 'false') \
+                         .replace('None', 'null')
 
 
 def create_line(diff, depth):
