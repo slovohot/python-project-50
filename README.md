@@ -32,3 +32,10 @@ gendiff file11.json file22.json:
 gendiff -f plain file11.json file22.json:
 
 [![asciicast](https://asciinema.org/a/yWeDqNmGG7tK7hfKx5YtQJyVz.svg)](https://asciinema.org/a/yWeDqNmGG7tK7hfKx5YtQJyVz)
+
+
+gendiff -f json file1.json file2.json:
+
+[![asciicast](https://asciinema.org/a/mKuf4U5cbcEvTsyV5VH2JNlpz.svg)](https://asciinema.org/a/mKuf4U5cbcEvTsyV5VH2JNlpz)
+
+
