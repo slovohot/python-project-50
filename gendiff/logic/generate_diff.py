@@ -32,11 +32,11 @@ def get_data(file_path):
 
 def generate_diff(file_path1, file_path2, format='stylish'):
 
-    print(f"Loading data from {file_path1}")
+    # print(f"Loading data from {file_path1}")
     data1 = get_data(file_path1)
     # print(f"Data from {file_path1}: {data1}")
 
-    print(f"Loading data from {file_path2}")
+    # print(f"Loading data from {file_path2}")
     data2 = get_data(file_path2)
     # print(f"Data from {file_path2}: {data2}")
 
