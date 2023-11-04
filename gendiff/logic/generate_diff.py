@@ -4,6 +4,7 @@ import os
 from gendiff.logic.create_diff import create_diff
 from gendiff.formatters.format_stylish import format_stylish
 from gendiff.formatters.format_plain import format_plain
+from gendiff.formatters.format_json import format_json
 
 
 # accept json/yaml and returns a dict
@@ -45,3 +46,5 @@ def generate_diff(file_path1, file_path2, format='stylish'):
         return format_stylish(diff)
     elif format == 'plain':
         return format_plain(diff)
+    else:  # format == 'json':
+        return format_json(diff)
