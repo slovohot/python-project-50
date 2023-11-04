@@ -19,8 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python
-          pyyaml
           pip install poetry
           python -m pip install --upgrade pip
           python -m pip install pytest .
