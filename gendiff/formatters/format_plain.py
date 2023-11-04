@@ -6,9 +6,10 @@ def create_string(value):
     elif isinstance(value, dict):
         return '[complex value]'
 
-    return str(value).replace('True', 'true') \
-                     .replace('False', 'false') \
-                     .replace('None', 'null')
+    return str(value)\
+        .replace('True', 'true') \
+        .replace('False', 'false') \
+        .replace('None', 'null')
 
 
 def generate_plain_diff(difference, parent=''):
@@ -28,7 +29,7 @@ def generate_plain_diff(difference, parent=''):
             new_value = create_string(item['new_value'])
             lines.append(
                 f"Property '{name}' was {status} with value: {new_value}"
-                )
+            )
 
         elif status == 'updated':
             old_value = create_string(item['old_value'])

@@ -17,24 +17,24 @@ def create_edits(old_dict, new_dict, key):
 
     if old_value == new_value:
         edits = {
-                'status': 'equal',
-                'old_value': old_value
-                }
+            'status': 'equal',
+            'old_value': old_value
+        }
 
     elif key in old_dict and key in new_dict:
         edits = create_nested_updated(old_value, new_value)
 
     elif key in old_dict:
         edits = {
-                'status': 'removed',
-                'old_value': old_value
-                }
+            'status': 'removed',
+            'old_value': old_value
+        }
 
     else:  # key in new_dict:
         edits = {
-                'status': 'added',
-                'new_value': new_value
-                }
+            'status': 'added',
+            'new_value': new_value
+        }
 
     return edits
 
@@ -42,12 +42,12 @@ def create_edits(old_dict, new_dict, key):
 def create_nested_updated(old_value, new_value):
     if isinstance(old_value, dict) and isinstance(new_value, dict):
         return {
-                'status': 'nested',
-                'nested': create_diff(old_value, new_value)
-               }
+            'status': 'nested',
+            'nested': create_diff(old_value, new_value)
+        }
     else:
         return {
-                'status': 'updated',
-                'old_value': old_value,
-                'new_value': new_value
-               }
+            'status': 'updated',
+            'old_value': old_value,
+            'new_value': new_value
+        }
