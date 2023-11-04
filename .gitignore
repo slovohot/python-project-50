@@ -5,3 +5,6 @@ __pycache__
 /dist
 .xml
 poetry.lock
+.coverage
+coverage.xml
+setup.cfg
