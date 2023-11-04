@@ -7,8 +7,8 @@ def create_string(value):
         return '[complex value]'
 
     return str(value).replace('True', 'true') \
-                     .replace('False', 'false') \
-                     .replace('None', 'null')
+                    .replace('False', 'false') \
+                    .replace('None', 'null')
 
 
 def generate_plain_diff(difference, parent=''):
