@@ -1,6 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/slovohot/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/slovohot/python-project-50/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/f3363048d4286421dced/maintainability)](https://codeclimate.com/github/slovohot/python-project-50/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/f3363048d4286421dced/test_coverage)](https://codeclimate.com/github/slovohot/python-project-50/test_coverage)
 
+
+[![Python CI](https://github.com/slovohot/python-project-50/actions/workflows/ci.yml/badge.svg)](https://github.com/slovohot/python-project-50/actions/workflows/ci.yml)
+
 version: python 3.11 poetry 1.4
 
 install: для установки введите команду: make full-install
