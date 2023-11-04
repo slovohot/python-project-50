@@ -26,14 +26,17 @@ def generate_plain_diff(difference, parent=''):
 
         elif status == 'added':
             new_value = create_string(item['new_value'])
-            lines.append(f"Property '{name}' was {status} \
-                          with value: {new_value}")
+            lines.append(
+                f"Property '{name}' was {status} with value: {new_value}"
+                )
 
         elif status == 'updated':
             old_value = create_string(item['old_value'])
             new_value = create_string(item['new_value'])
-            lines.append(f"Property '{name}' was {status}. \
-                           From {old_value} to {new_value}")
+            lines.append(
+                f"Property '{name}' was {status}. From {old_value} "
+                f"to {new_value}"
+            )
 
     return lines
 
