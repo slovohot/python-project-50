@@ -1,3 +1,5 @@
+from gendiff.logic.lower_bool import lower_bool
+
 
 START_DEPTH = 0
 STEP_DEPTH = 1
@@ -10,10 +12,7 @@ def get_stepdepth_or_vallower(value, depth):
         return create_format(value, depth + STEP_DEPTH)
 
     else:
-        return str(value)\
-            .replace('True', 'true') \
-            .replace('False', 'false') \
-            .replace('None', 'null')
+        return lower_bool(value)
 
 
 def create_line(diff, depth):

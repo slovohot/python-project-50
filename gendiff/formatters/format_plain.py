@@ -1,3 +1,5 @@
+from gendiff.logic.lower_bool import lower_bool
+
 
 def create_string(value):
     if isinstance(value, str):
@@ -6,10 +8,7 @@ def create_string(value):
     elif isinstance(value, dict):
         return '[complex value]'
 
-    return str(value)\
-        .replace('True', 'true') \
-        .replace('False', 'false') \
-        .replace('None', 'null')
+    return lower_bool(value)
 
 
 def generate_plain_diff(difference, parent=''):

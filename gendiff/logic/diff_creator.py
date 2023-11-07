@@ -1,5 +1,5 @@
 
-def create_diff(old_dict, new_dict):
+def diff_creator(old_dict, new_dict):
     diff = []
     keys = sorted(list(set(old_dict.keys()).union(new_dict.keys())))
 
@@ -43,7 +43,7 @@ def create_nested_updated(old_value, new_value):
     if isinstance(old_value, dict) and isinstance(new_value, dict):
         return {
             'status': 'nested',
-            'nested': create_diff(old_value, new_value)
+            'nested': diff_creator(old_value, new_value)
         }
     else:
         return {

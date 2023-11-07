@@ -1,10 +1,20 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
-authors = ["slovohot <antoshkamc.a@gmail.com>"]
+description = "the library determining the difference between two data structures"
+authors = ["slovohot <i@slovohot.ru>"]
 readme = "README.md"
 packages = [{include = "gendiff"}]
+
+
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.11"
