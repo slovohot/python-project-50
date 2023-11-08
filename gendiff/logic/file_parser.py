@@ -7,7 +7,7 @@ import os
 def get_data(file_path, default_directory='tests/fixtures/'):
     if os.path.isabs(file_path):
         full_file_path = file_path
-    else: 
+    else:
         full_file_path = os.path.join(default_directory, file_path)
 
     _, extension = os.path.splitext(full_file_path)

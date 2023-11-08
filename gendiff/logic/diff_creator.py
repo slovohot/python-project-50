@@ -34,7 +34,7 @@ def diff_creator(old_dict, new_dict):
                 'status': 'removed',
                 'old_value': old_value
             }
-            
+
         else:  # key in new_dict
             edits = {
                 'status': 'added',
