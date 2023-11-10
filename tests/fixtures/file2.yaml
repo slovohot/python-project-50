@@ -1,8 +1,5 @@
-timeout:
-  - 20
+timeout: 20
 
-verbose:
-  - true
+verbose: true
 
-host:
-  - hexlet.io
+host: hexlet.io
