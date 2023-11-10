@@ -1,6 +1,5 @@
 import yaml
 import json
-import os
 
 
 # accept json/yaml and returns a dict
